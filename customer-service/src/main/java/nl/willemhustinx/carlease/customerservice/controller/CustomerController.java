@@ -1,6 +1,6 @@
 package nl.willemhustinx.carlease.customerservice.controller;
 
-import nl.willemhustinx.carlease.customerservice.Exception.NotFoundException;
+import nl.willemhustinx.carlease.customerservice.exception.NotFoundException;
 import nl.willemhustinx.carlease.customerservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

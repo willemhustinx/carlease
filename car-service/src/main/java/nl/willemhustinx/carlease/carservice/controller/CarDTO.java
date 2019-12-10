@@ -2,7 +2,6 @@ package nl.willemhustinx.carlease.carservice.controller;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.UUID;
 
 public class CarDTO {
 
@@ -13,8 +12,8 @@ public class CarDTO {
     private String model;
     private String version;
     private String doors;
-    private String gross_price;
-    private String nett_price;
+    private String grossPrice;
+    private String nettPrice;
     private String hp;
 
     public String getMake() {
@@ -49,20 +48,20 @@ public class CarDTO {
         this.doors = doors;
     }
 
-    public String getGross_price() {
-        return gross_price;
+    public String getGrossPrice() {
+        return grossPrice;
     }
 
-    public void setGross_price(String gross_price) {
-        this.gross_price = gross_price;
+    public void setGrossPrice(String grossPrice) {
+        this.grossPrice = grossPrice;
     }
 
-    public String getNett_price() {
-        return nett_price;
+    public String getNettPrice() {
+        return nettPrice;
     }
 
-    public void setNett_price(String nett_price) {
-        this.nett_price = nett_price;
+    public void setNettPrice(String nettPrice) {
+        this.nettPrice = nettPrice;
     }
 
     public String getHp() {

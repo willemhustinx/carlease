@@ -1,9 +1,9 @@
 package nl.willemhustinx.carlease.customerservice.service;
 
 
-import nl.willemhustinx.carlease.customerservice.exception.NotFoundException;
 import nl.willemhustinx.carlease.customerservice.controller.CustomerDTO;
 import nl.willemhustinx.carlease.customerservice.controller.CustomerMapper;
+import nl.willemhustinx.carlease.customerservice.exception.NotFoundException;
 import nl.willemhustinx.carlease.customerservice.model.Customer;
 import nl.willemhustinx.carlease.customerservice.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

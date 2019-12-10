@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>eureka</module>
+		<module>eureka-server</module>
 		<module>customer-service</module>
 		<module>car-service</module>
 	</modules>

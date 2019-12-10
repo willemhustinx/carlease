@@ -1,10 +1,10 @@
-package nl.willemhustinx.eureka;
+package nl.willemhustinx.eurekaserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaApplicationTests {
+class EurekaServerApplicationTests {
 
     @Test
     void contextLoads() {

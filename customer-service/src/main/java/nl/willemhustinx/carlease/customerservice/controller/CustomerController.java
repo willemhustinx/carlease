@@ -1,5 +1,6 @@
 package nl.willemhustinx.carlease.customerservice.controller;
 
+import io.micrometer.core.annotation.Timed;
 import nl.willemhustinx.carlease.customerservice.exception.NotFoundException;
 import nl.willemhustinx.carlease.customerservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -15,17 +17,23 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    CustomerService service;
+    private CustomerService service;
+
+    private RestTemplate restTemplate;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService, RestTemplate restTemplate) {
         this.service = customerService;
+        this.restTemplate = restTemplate;
     }
 
 
     @GetMapping
+    @Timed
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
         List<CustomerDTO> list = service.getAllCustomers();
+
+        ResponseEntity<String> forEntity = restTemplate.getForEntity("http://CAR-SERVICE/cars", String.class);
 
         return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }

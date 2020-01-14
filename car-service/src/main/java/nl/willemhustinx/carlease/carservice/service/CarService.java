@@ -2,6 +2,7 @@ package nl.willemhustinx.carlease.carservice.service;
 
 import nl.willemhustinx.carlease.carservice.controller.CarDTO;
 import nl.willemhustinx.carlease.carservice.controller.CarMapper;
+import nl.willemhustinx.carlease.carservice.exception.NotFoundException;
 import nl.willemhustinx.carlease.carservice.model.Car;
 import nl.willemhustinx.carlease.carservice.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,18 @@ public class CarService {
     }
 
     public List<CarDTO> getAllCars() {
-        List<Car> customerList = repository.findAll();
+        List<Car> carList = repository.findAll();
 
-        return customerList.stream().map(mapper::convertToDTO).collect(Collectors.toList());
+        return carList.stream().map(mapper::convertToDTO).collect(Collectors.toList());
+    }
+
+    public CarDTO getCarById(Long carID) {
+        Car foundCar = repository.findByCarID(carID);
+
+        if (foundCar != null) {
+            return mapper.convertToDTO(foundCar);
+        }
+        throw new NotFoundException("Car not found");
     }
 
 }

@@ -14,14 +14,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
-
-    CustomerService service;
+    
+    private CustomerService service;
 
     @Autowired
     public CustomerController(CustomerService customerService) {
         this.service = customerService;
     }
-
 
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
@@ -55,4 +54,5 @@ public class CustomerController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
     }
+
 }

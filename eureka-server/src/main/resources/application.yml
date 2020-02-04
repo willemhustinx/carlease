@@ -4,3 +4,7 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+  instance:
+    registryFetchIntervalSeconds: 1
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 5
